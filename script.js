@@ -20,6 +20,7 @@ function addNewNote(text = '') {
         <div class="notes">
             <div class="tools">
                 <button class="edit"><i class="fas fa-edit"></i></button>
+                <button class="save"><i class="fas fa-check"></i></button>
                 <button class="delete"><i class="fas fa-trash-alt"></i></button>
             </div>
             <div class="main ${text ? '' : 'hidden'}">
@@ -29,7 +30,9 @@ function addNewNote(text = '') {
     `;
 
     const editBtn = note.querySelector('.edit')
+    editBtn.classList.add('hidden')
     const deleteBtn = note.querySelector('.delete')
+    const save = note.querySelector('.save')
     const main = note.querySelector('.main')
     const textArea = note.querySelector('textarea')
 
@@ -39,6 +42,15 @@ function addNewNote(text = '') {
     editBtn.addEventListener('click', () => {
         main.classList.toggle('hidden')
         textArea.classList.toggle('hidden')
+        editBtn.classList.toggle('hidden')
+        save.classList.toggle('hidden')
+    })
+
+    save.addEventListener('click', () => {
+        main.classList.toggle('hidden')
+        textArea.classList.toggle('hidden')
+        editBtn.classList.toggle('hidden')
+        save.classList.add('hidden')
     })
 
     deleteBtn.addEventListener('click', () => {
